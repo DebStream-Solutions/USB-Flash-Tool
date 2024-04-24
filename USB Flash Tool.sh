@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
   	exit 1
 else
 
-	BEFORE=$(ls /dev/ | grep -E "sd[a-z]$")
+    BEFORE=$(ls /dev/ | grep -E "sd[a-z]$")
     echo "Please insert the USB device now..."
     read -p "Press enter when ready"
     AFTER=$(ls /dev/ | grep -E "sd[a-z]$")
