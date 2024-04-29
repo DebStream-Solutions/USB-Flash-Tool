@@ -26,7 +26,7 @@ else
     if [[ -z "$USB_DEVICE" ]]; then
 
         cycle=true
-        while $cycle
+        while $cycle 
         do
             # Get a list of all connected USB disks
             USB_DISKS=$(lsblk -o NAME,MODEL | grep 'USB DISK')
@@ -85,6 +85,6 @@ else
     read -p " !!! This will erase all your data on $USB_DEVICE do you wish to continue? !!!"
 
     # Burn the .iso image onto the USB device
-    #dd bs=4M if=$IMAGE_PATH of=/dev/$USB_DEVICE status=progress oflag=sync
+    dd bs=4M if=$IMAGE_PATH of=/dev/$USB_DEVICE status=progress oflag=sync
 
 fi
