@@ -44,7 +44,7 @@ else
             echo ""
             echo "$USB_DISKS"
             echo "+----------------------------------------+"
-            
+
             echo ""
             read -p "Enter the name of the disk you want to choose: " CHOSEN_DISK
 
@@ -75,6 +75,11 @@ else
         # Get a list of all .iso files in the users Downloads directory
         files=( /home/$SUDO_USER/Downloads/*.iso )
 
+        # Check if any iso files exist in Downloads
+        if [ $(basename $files) = "*.iso" ]; then
+            echo "No iso files in your Download directory detected. Please put your iso files in your Downloads directory and run the script again."
+            exit 1
+        fi
 
         # Print all files with their corresponding numbers
         # Print the list of USB disks and prompt the user to choose one
@@ -103,12 +108,6 @@ else
         FILENAME=$(basename "${files[$number]}")
         cycle=false
         fi
-
-        # Check if any USB disks are connected
-        #if [[ -z "$FILES" ]]; then
-            #echo "No iso files detected. Please put your iso files in your Downloads directory and run the script again."
-            #exit 1
-        #fi
     done
 
 
