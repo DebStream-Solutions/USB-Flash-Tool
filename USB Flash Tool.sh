@@ -91,8 +91,6 @@ else
         done
         echo "+----------------------------------------+"
 
-        echo ""
-
         # Ask the user to choose a file
         read -p "Please enter the number of the file you want to choose: " number
 
